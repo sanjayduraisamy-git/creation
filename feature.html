@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRK | Elite Digital Design</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00d2ff;
+            --bg-dark: #0a0a0c;
+            --glass: rgba(255, 255, 255, 0.04);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Outfit', sans-serif; 
+            color: #ffffff; 
+            background: var(--bg-dark);
+            background-image: radial-gradient(circle at top right, rgba(0, 210, 255, 0.15), transparent),
+                              url('https://unsplash.com');
+            background-attachment: fixed;
+            background-size: cover;
+            overflow-x: hidden;
+        }
+
+        /* Nav Glassmorphism */
+        nav { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 20px 8%; background: rgba(10, 10, 12, 0.7);
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .logo { font-size: 2.2rem; font-weight: 900; color: #fff; letter-spacing: -1px; }
+        .logo span { color: var(--primary); }
+        
+        nav ul { display: flex; list-style: none; gap: 40px; }
+        nav a { text-decoration: none; color: #999; font-weight: 500; transition: 0.4s; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+        nav a:hover { color: var(--primary); text-shadow: 0 0 10px rgba(0, 210, 255, 0.5); }
+
+        /* Hero Section */
+        .hero { 
+            height: 100vh; display: flex; flex-direction: column; 
+            justify-content: center; align-items: flex-start;
+            padding: 0 10%; position: relative;
+        }
+        .hero h1 { font-size: clamp(3rem, 8vw, 6rem); line-height: 0.9; margin-bottom: 20px; font-weight: 900; }
+        .hero p { max-width: 600px; font-size: 1.2rem; color: #ccc; margin-bottom: 40px; font-weight: 300; }
+        
+        .cta-group { display: flex; gap: 20px; }
+        .btn { 
+            padding: 18px 45px; background: var(--primary); color: #000; 
+            text-decoration: none; border-radius: 4px; font-weight: 700; 
+            transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            position: relative; overflow: hidden;
+        }
+        .btn:hover { background: #fff; transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        
+        .btn-outline { background: transparent; border: 1px solid var(--glass-border); color: #fff; }
+        .btn-outline:hover { background: var(--glass-border); }
+
+        /* Modern Grid with Floating Cards */
+        .section-label { padding: 100px 10% 0; color: var(--primary); font-weight: 600; letter-spacing: 4px; text-transform: uppercase; font-size: 0.8rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 40px 10% 100px; }
+        
+        .card { 
+            padding: 50px; 
+            background: var(--glass); 
+            border: 1px solid var(--glass-border);
+            border-radius: 20px; backdrop-filter: blur(10px);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+        }
+        .card::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05), transparent);
+            transition: 0.5s; pointer-events: none;
+        }
+        .card:hover { 
+            transform: translateY(-15px) scale(1.02);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--primary);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+        .card h3 { font-size: 1.8rem; margin-bottom: 15px; font-weight: 600; }
+        .card p { color: #aaa; font-weight: 300; }
+
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .hero { align-items: center; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">S<span>RK</span></div>
+        <ul>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#services">Expertise</a></li>
+            <li><a href="#contact">Connect</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>THE VISION<br>OF <span>SRK.</span></h1>
+        <p>A premier design collective specializing in high-performance digital experiences and visual storytelling for the next generation of brands.</p>
+        <div class="cta-group">
+            <a href="#" class="btn">Explore Work</a>
+            <a href="#" class="btn btn-outline">Our Story</a>
+        </div>
+    </section>
+
+    <div class="section-label">Core Capabilities</div>
+    <section class="grid" id="services">
+        <div class="card">
+            <h3>01 / Motion</h3>
+            <p>High-fidelity cinematic transitions and interactive animations that captivate users instantly.</p>
+        </div>
+        <div class="card">
+            <h3>02 / Identity</h3>
+            <p>Bespoke brand systems designed to cut through the digital noise with surgical precision.</p>
+        </div>
+        <div class="card">
+            <h3>03 / Growth</h3>
+            <p>Scalable web architectures built for speed, security, and global conversion.</p>
+        </div>
+    </section>
+
+    <footer style="padding: 80px 10%; background: #000; border-top: 1px solid var(--glass-border); text-align: center;">
+        <p style="color: #666; font-size: 0.9rem;">&copy; 2026 SRK BRAND. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+</body>
+</html>
